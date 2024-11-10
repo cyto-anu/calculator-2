@@ -1,0 +1,77 @@
+html, body {
+    height: 100%;
+    background-color: beige;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    height: 550px;
+    width: 500px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.display {
+    height: 100px;
+    width: 475px;
+    background-color: lightgray;
+    margin-top: 10px;
+    margin-bottom: 7px;
+    border-radius: 7px;
+}
+
+.allButtons {
+    display: flex;
+    flex-direction: column;
+    width: 425px;
+    height: 420px;
+    align-items:center;
+    justify-content:center;
+    
+}
+
+.row {
+    width: 475px;
+    height: 100px;
+    display: flex;
+   
+}
+
+.square {
+    flex-grow: 1;
+    border-radius: 7px;
+    font-size: 20px;
+    max-width: 25%;
+}
+
+.rectangle {
+    flex-grow: 1;
+    border-radius: 7px;
+    font-size: large;
+    max-width: 50%;
+}
+
+.clear {
+    background-color: rgb(248, 126, 146);
+}
+.negative, .percent {
+    background-color: rgb(255, 163, 178);
+}
+
+.divide, .multiply, .minus, .plus, .equals{
+    background-color: rgb(250, 206, 124);
+}
+
+.num {
+    background-color: lightskyblue;
+}
+
+.equals {
+    background-color: rgb(253, 191, 74);
+}

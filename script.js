@@ -16,10 +16,10 @@ function divide(a,b) {
     return (a / b);
 }
 
-let num1;
+let num1 = [];
 let operator;
-let num2;
-let result;
+let num2=[];
+
 
 function operate (num1,operator,num2) {
     if (operator == "+"){
@@ -40,16 +40,29 @@ const displayText = body.querySelector(".displayText");
 
 const numBtns = document.querySelectorAll('.num');
 
+// numBtns.forEach(button => {
+//   button.addEventListener('click', () => {
+//     displayText.textContent=button.textContent;
+//     if (num1 === undefined) {
+//         num1 = button.textContent;
+//     } else {
+//         num2 = button.textContent;
+//     };
+//   });
+// });
+
 numBtns.forEach(button => {
-  button.addEventListener('click', () => {
-    displayText.textContent=button.textContent;
-    if (num1 === undefined) {
-        num1 = button.textContent;
-    } else {
-        num2 = button.textContent;
-    };
-  });
+    button.addEventListener('click', () => {
+      if (operator === undefined){
+        num1.push(button.textContent);
+        displayText.textContent = num1.toString().replaceAll(",","");
+      } else {
+        num2.push(button.textContent);
+        displayText.textContent = num2.toString().replaceAll(",","");
+      } 
+    });
 });
+  
 
 // logic for operator buttons to assign to operator variable
 
@@ -57,10 +70,15 @@ const operatorBtns = document.querySelectorAll(".operator");
 
 operatorBtns.forEach(button => {
     button.addEventListener("click", () => {
-        operator = button.textContent;
-        console.log(operator);
+        if (operator === undefined){
+            operator = button.textContent;
+        } else {
+            displayText.textContent = operate (num1.toString().replaceAll(",",""),operator,num2.toString().replaceAll(",",""));
+            num1 = operate (num1.toString().replaceAll(",",""),operator,num2.toString().replaceAll(",",""));
+            operator = button.textContent;
+            num2 = [];
+        };
 
-        
     });
 });
 
@@ -69,8 +87,8 @@ operatorBtns.forEach(button => {
 const clearBtn = document.querySelector('.clear');
 clearBtn.addEventListener("click", ()=> {
     displayText.textContent="";
-    num1 = undefined;
-    num2 = undefined;
+    num1 = [];
+    num2 = [];
     operator = undefined;
 })
 
@@ -91,8 +109,8 @@ allBtns.forEach(button => {
 
 const equalsBtn = document.querySelector(".equals");
 equalsBtn.addEventListener("click", ()=> {
-    displayText.textContent = operate (num1,operator,num2);
-    num1 = operate (num1,operator,num2);
+    displayText.textContent = operate (num1.toString().replaceAll(",",""),operator,num2.toString().replaceAll(",",""));
+    num1 = operate (num1.toString().replaceAll(",",""),operator,num2.toString().replaceAll(",",""));
     operator = undefined;
-    num2 = undefined;
+    num2 = [];
 });

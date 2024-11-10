@@ -24,6 +24,15 @@ body {
     margin-top: 10px;
     margin-bottom: 7px;
     border-radius: 7px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.displayText{
+    margin-right: 20px;
+    font-family: monospace;
+    font-size: 40px;
 }
 
 .allButtons {
@@ -44,21 +53,24 @@ body {
 }
 
 .square {
+    font-family: monospace;
     flex-grow: 1;
     border-radius: 7px;
-    font-size: 20px;
+    font-size: 25px;
     max-width: 25%;
 }
 
 .rectangle {
+    font-family: monospace;
     flex-grow: 1;
     border-radius: 7px;
-    font-size: large;
+    font-size: 25px;
     max-width: 50%;
 }
 
 .clear {
-    background-color: rgb(248, 126, 146);
+    background-color: rgb(255, 163, 178);
+    max-width: 75%;
 }
 .negative, .percent {
     background-color: rgb(255, 163, 178);
@@ -73,5 +85,9 @@ body {
 }
 
 .equals {
-    background-color: rgb(253, 191, 74);
+    background-color: rgb(248, 192, 89);
 }
+
+
+
+
